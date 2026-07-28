@@ -1364,20 +1364,34 @@
 
     .expertise-header {
       max-width: 1400px;
-      margin: 0 auto 48px auto;
+      margin: 0 auto 40px auto;
       display: flex;
-      align-items: center;
-      gap: 28px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
     }
 
     .expertise-heading {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(3rem, 5.5vw, 5.2rem);
-      font-weight: 400;
+      font-family: "Chillax", "Montserrat", sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 300;
       color: #ffffff;
-      line-height: 1;
-      letter-spacing: -0.03em;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
       margin: 0;
+      text-align: left;
+    }
+
+    .expertise-subline {
+      font-family: "Chillax", "Inter", "Montserrat", sans-serif;
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 820px;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
     }
 
     /* Features Grid */
@@ -2430,11 +2444,12 @@
     </div>
   </section>
 
-  <!-- ================= EXPERTISE SECTION (BRIGHT THEME) ================= -->
-  <section class="expertise-section" id="expertise">
-    <!-- Expertise Title -->
+  <!-- ================= THE AAS DIFFERENCE BENTO SECTION ================= -->
+  <section class="expertise-section" id="aas-difference">
+    <!-- Expertise Title & Subtitle -->
     <div class="expertise-header">
-      <h2 class="expertise-heading">Expertise</h2>
+      <h2 class="expertise-heading">The AAS Difference</h2>
+      <p class="expertise-subline">Thoughtful design, reliable execution, and lasting value—crafted around the way you live.</p>
     </div>
 
     <!-- Features Grid -->
