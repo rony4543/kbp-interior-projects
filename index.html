@@ -851,48 +851,66 @@
     .expertise-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px 24px;
-    }
-
-    .expertise-card {
-      display: flex;
-      align-items: flex-start;
       gap: 24px;
-      padding: 32px 28px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .expertise-card-img {
+      position: relative;
+      width: 100%;
+      height: 320px;
       border-radius: 16px;
-      min-height: 140px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      transition: transform 0.6s var(--ease-cinematic), border-color 0.4s ease;
     }
 
-    .expertise-num {
+    .expertise-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease-cinematic);
+    }
+
+    .expertise-card-img:hover img {
+      transform: scale(1.04);
+    }
+
+    .expertise-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.68) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .expertise-card-num {
+      position: absolute;
+      top: 20px;
+      left: 24px;
       font-family: "Chillax", "Montserrat", sans-serif;
-      font-size: 1.25rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.4);
-      line-height: 1.2;
-      flex-shrink: 0;
-    }
-
-    .expertise-info {
-      flex: 1;
-    }
-
-    .expertise-info h4 {
-      font-family: "Chillax", "Montserrat", sans-serif;
-      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
-      font-weight: 300;
-      color: #ffffff;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-
-    .expertise-info p {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+      font-size: 1.1rem;
       font-weight: 300;
       color: rgba(255, 255, 255, 0.65);
-      line-height: 1.6;
+      letter-spacing: 0.05em;
+    }
+
+    .expertise-card-title {
+      font-family: "Chillax", "Montserrat", sans-serif;
+      font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+      font-weight: 200;
+      color: #ffffff;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+      margin: 0;
+      text-align: center;
+      max-width: 88%;
     }
 
     /* Editorial Multi-Row Image Grid (Reference Image Style) */
@@ -1961,28 +1979,27 @@
 
       .expertise-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .expertise-card {
-        padding: 22px 18px;
         gap: 16px;
-        min-height: auto;
-        border-radius: 12px;
       }
 
-      .expertise-num {
-        font-size: 1.1rem;
+      .expertise-card-img {
+        height: 240px;
+        border-radius: 14px;
       }
 
-      .expertise-info h4 {
-        font-size: clamp(1.05rem, 4.2vw, 1.25rem);
-        margin-bottom: 4px;
+      .expertise-card-overlay {
+        padding: 24px;
       }
 
-      .expertise-info p {
-        font-size: clamp(0.82rem, 3.4vw, 0.92rem);
-        line-height: 1.55;
+      .expertise-card-num {
+        top: 16px;
+        left: 18px;
+        font-size: 0.95rem;
+      }
+
+      .expertise-card-title {
+        font-size: clamp(1.25rem, 5vw, 1.7rem);
+        max-width: 92%;
       }
     }
 
@@ -2267,57 +2284,48 @@
         </div>
 
         <div class="expertise-grid">
-          <!-- Item 01 -->
-          <div class="expertise-card">
-            <span class="expertise-num">01</span>
-            <div class="expertise-info">
-              <h4>Turnkey Interior Projects</h4>
-              <p>End-to-end spatial planning, material procurement, manufacturing, and on-site execution under a single point of accountability.</p>
+          <!-- Item 01: Turnkey Interior Projects -->
+          <div class="expertise-card-img">
+            <img src="turnkey-projects.jpg" alt="Turnkey Interior Projects">
+            <div class="expertise-card-overlay">
+              <span class="expertise-card-num">01</span>
+              <h3 class="expertise-card-title">Turnkey Interior Projects</h3>
             </div>
           </div>
 
-          <!-- Item 02 -->
-          <div class="expertise-card">
-            <span class="expertise-num">02</span>
-            <div class="expertise-info">
-              <h4>Interior Consultant</h4>
-              <p>Architectural spatial design, 3D visualization, material curation, structural consulting, and comprehensive project strategy.</p>
+          <!-- Item 02: Custom Furniture Manufacturing -->
+          <div class="expertise-card-img">
+            <img src="custom-furniture.jpg" alt="Custom Furniture Manufacturing">
+            <div class="expertise-card-overlay">
+              <span class="expertise-card-num">02</span>
+              <h3 class="expertise-card-title">Custom Furniture Manufacturing</h3>
             </div>
           </div>
 
-          <!-- Item 03 -->
-          <div class="expertise-card">
-            <span class="expertise-num">03</span>
-            <div class="expertise-info">
-              <h4>Custom Furniture Manufacturing</h4>
-              <p>Bespoke in-house millwork, precision joinery, custom veneer metalwork, and tailored luxury furniture production.</p>
+          <!-- Item 03: Residential Interiors -->
+          <div class="expertise-card-img">
+            <img src="residential-interiors.jpg" alt="Residential Interiors">
+            <div class="expertise-card-overlay">
+              <span class="expertise-card-num">03</span>
+              <h3 class="expertise-card-title">Residential Interiors</h3>
             </div>
           </div>
 
-          <!-- Item 04 -->
-          <div class="expertise-card">
-            <span class="expertise-num">04</span>
-            <div class="expertise-info">
-              <h4>Residential Interiors</h4>
-              <p>Luxury apartments, penthouses, modern duplexes, villas, and private architectural living spaces.</p>
+          <!-- Item 04: Commercial Interiors -->
+          <div class="expertise-card-img">
+            <img src="commercial-interiors.jpg" alt="Commercial Interiors">
+            <div class="expertise-card-overlay">
+              <span class="expertise-card-num">04</span>
+              <h3 class="expertise-card-title">Commercial Interiors</h3>
             </div>
           </div>
 
-          <!-- Item 05 -->
-          <div class="expertise-card">
-            <span class="expertise-num">05</span>
-            <div class="expertise-info">
-              <h4>Commercial Interiors</h4>
-              <p>Corporate headquarters, executive office suites, luxury retail boutiques, and high-impact commercial environments.</p>
-            </div>
-          </div>
-
-          <!-- Item 06 -->
-          <div class="expertise-card">
-            <span class="expertise-num">06</span>
-            <div class="expertise-info">
-              <h4>Hospitality & Healthcare Interiors</h4>
-              <p>Boutique hotels, fine dining restaurants, wellness centers, luxury clinics, and specialized institutional spaces.</p>
+          <!-- Item 05: Hospitality & Healthcare Interiors -->
+          <div class="expertise-card-img">
+            <img src="hospitality-interiors.jpg" alt="Hospitality & Healthcare Interiors">
+            <div class="expertise-card-overlay">
+              <span class="expertise-card-num">05</span>
+              <h3 class="expertise-card-title">Hospitality & Healthcare Interiors</h3>
             </div>
           </div>
         </div>
