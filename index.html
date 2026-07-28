@@ -947,33 +947,24 @@
 
     /* ================= EXPERTISE SECTION STYLES ================= */
     .expertise-section {
-      margin-top: 60px;
-      margin-bottom: 70px;
-      padding-top: 40px;
+      margin-top: 50px;
+      margin-bottom: 60px;
+      padding-top: 36px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .expertise-header {
-      margin-bottom: 36px;
-    }
-
-    .expertise-tag {
-      font-family: "Montserrat", sans-serif;
-      font-size: 0.76rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
-      font-weight: 500;
-      display: inline-block;
-      margin-bottom: 12px;
+      margin-bottom: 28px;
+      text-align: left;
     }
 
     .expertise-title {
       font-family: "Chillax", "Montserrat", sans-serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
       font-weight: 300;
       color: #ffffff;
       letter-spacing: -0.02em;
+      text-align: left;
     }
 
     .expertise-grid {
@@ -985,55 +976,21 @@
     .expertise-card {
       display: flex;
       align-items: flex-start;
-      gap: 20px;
-      padding: 28px 24px;
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 24px;
+      padding: 32px 28px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .expertise-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: #ff5500;
-      opacity: 0;
-      transform: scaleY(0);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-      transform-origin: bottom;
-    }
-
-    .expertise-card:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-4px);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
-    }
-
-    .expertise-card:hover::before {
-      opacity: 1;
-      transform: scaleY(1);
+      min-height: 140px;
     }
 
     .expertise-num {
       font-family: "Chillax", "Montserrat", sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       font-weight: 300;
       color: rgba(255, 255, 255, 0.4);
       line-height: 1.2;
       flex-shrink: 0;
-      transition: color 0.3s ease;
-    }
-
-    .expertise-card:hover .expertise-num {
-      color: #ff5500;
     }
 
     .expertise-info {
@@ -1042,32 +999,19 @@
 
     .expertise-info h4 {
       font-family: "Chillax", "Montserrat", sans-serif;
-      font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
       font-weight: 300;
       color: #ffffff;
       margin-bottom: 8px;
       letter-spacing: -0.01em;
-      transition: color 0.3s ease;
     }
 
     .expertise-info p {
       font-family: "Montserrat", sans-serif;
-      font-size: clamp(0.85rem, 1vw, 0.95rem);
+      font-size: clamp(0.88rem, 1.05vw, 0.98rem);
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.65);
       line-height: 1.6;
-    }
-
-    .expertise-arrow {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.3);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .expertise-card:hover .expertise-arrow {
-      color: #ffffff;
-      transform: translate(4px, -4px);
     }
 
     /* Editorial Multi-Row Image Grid (Reference Image Style) */
@@ -2369,8 +2313,7 @@
       <!-- ================= EXPERTISE SECTION ================= -->
       <div class="expertise-section" id="expertise">
         <div class="expertise-header">
-          <span class="expertise-tag">OUR SPECIALIZATION</span>
-          <h3 class="expertise-title">Our Expertise</h3>
+          <h2 class="expertise-title">Our Expertise</h2>
         </div>
 
         <div class="expertise-grid">
@@ -2381,7 +2324,6 @@
               <h4>Turnkey Interior Projects</h4>
               <p>End-to-end spatial planning, material procurement, manufacturing, and on-site execution under a single point of accountability.</p>
             </div>
-            <span class="expertise-arrow">↗</span>
           </div>
 
           <!-- Item 02 -->
@@ -2391,7 +2333,6 @@
               <h4>Interior Consultant</h4>
               <p>Architectural spatial design, 3D visualization, material curation, structural consulting, and comprehensive project strategy.</p>
             </div>
-            <span class="expertise-arrow">↗</span>
           </div>
 
           <!-- Item 03 -->
@@ -2401,7 +2342,6 @@
               <h4>Custom Furniture Manufacturing</h4>
               <p>Bespoke in-house millwork, precision joinery, custom veneer metalwork, and tailored luxury furniture production.</p>
             </div>
-            <span class="expertise-arrow">↗</span>
           </div>
 
           <!-- Item 04 -->
@@ -2411,7 +2351,6 @@
               <h4>Residential Interiors</h4>
               <p>Luxury apartments, penthouses, modern duplexes, villas, and private architectural living spaces.</p>
             </div>
-            <span class="expertise-arrow">↗</span>
           </div>
 
           <!-- Item 05 -->
@@ -2421,7 +2360,6 @@
               <h4>Commercial Interiors</h4>
               <p>Corporate headquarters, executive office suites, luxury retail boutiques, and high-impact commercial environments.</p>
             </div>
-            <span class="expertise-arrow">↗</span>
           </div>
 
           <!-- Item 06 -->
@@ -2431,7 +2369,6 @@
               <h4>Hospitality & Healthcare Interiors</h4>
               <p>Boutique hotels, fine dining restaurants, wellness centers, luxury clinics, and specialized institutional spaces.</p>
             </div>
-            <span class="expertise-arrow">↗</span>
           </div>
         </div>
       </div>
