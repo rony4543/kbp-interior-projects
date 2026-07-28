@@ -2064,7 +2064,13 @@
     /* Initial Landing Entrance Classes (Crisp & Sharp) */
     .landing-blur-init {
       opacity: 0;
-      transform: translateY(28px) scale(0.97);
+      transform: translateY(28px) scale(0.98);
+      will-change: opacity, transform;
+    }
+
+    .landing-blur-cta {
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
       will-change: opacity, transform;
     }
 
@@ -2665,12 +2671,14 @@
         const headerNav = document.querySelector('.header .nav');
         const headerCta = document.querySelector('.header .cta-btn');
         const heroHeading = document.querySelector('.hero h1');
+        const heroMobileCta = document.querySelector('.hero-mobile-cta');
 
         if (heroVideo) heroVideo.classList.add('landing-blur-bg');
         if (headerLogo) headerLogo.classList.add('landing-blur-header');
         if (headerNav) headerNav.classList.add('landing-blur-header');
-        if (headerCta) headerCta.classList.add('landing-blur-header');
+        if (headerCta) headerCta.classList.add('landing-blur-cta');
         if (heroHeading) heroHeading.classList.add('landing-blur-init');
+        if (heroMobileCta) heroMobileCta.classList.add('landing-blur-cta');
 
         const landingTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -2678,20 +2686,27 @@
           .to(heroVideo, {
             opacity: 1,
             scale: 1,
-            duration: 1.4
+            duration: 1.2
           })
-          .to([headerLogo, headerNav, headerCta], {
+          .to([headerLogo, headerNav], {
             opacity: 1,
             y: 0,
-            duration: 1.0,
-            stagger: 0.12
-          }, "-=1.0")
+            duration: 0.9,
+            stagger: 0.1
+          }, "-=0.9")
           .to(heroHeading, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 1.2
-          }, "-=0.8");
+            duration: 1.1
+          }, "-=0.6")
+          .to([headerCta, heroMobileCta].filter(Boolean), {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.0,
+            stagger: 0.12
+          }, "-=0.7");
 
         // 2. PARALLAX SCROLL SCRUBBING
         if (heroVideo) {
