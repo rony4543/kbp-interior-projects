@@ -1939,6 +1939,49 @@
         line-height: 1.65;
         margin-top: 24px;
       }
+
+      /* Expertise Section Mobile Responsive Rules */
+      .expertise-section {
+        margin-top: 36px;
+        margin-bottom: 44px;
+        padding-top: 28px;
+      }
+
+      .expertise-header {
+        margin-bottom: 20px;
+      }
+
+      .expertise-title {
+        font-size: clamp(1.6rem, 5.8vw, 2.4rem);
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .expertise-card {
+        padding: 22px 18px;
+        gap: 16px;
+        min-height: auto;
+        border-radius: 12px;
+      }
+
+      .expertise-num {
+        font-size: 1.1rem;
+      }
+
+      .expertise-info h4 {
+        font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+        margin-bottom: 4px;
+      }
+
+      .expertise-info p {
+        font-size: clamp(0.82rem, 3.4vw, 0.92rem);
+        line-height: 1.55;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1979,7 +2022,11 @@
       .dwb-row-1.is-expanded .dwb-text-span,
       .dwb-row-2.is-expanded .dwb-text-span,
       .dwb-row-3.is-expanded .dwb-text-span {
-        transform: translateX(6px);
+        transform: none !important;
+      }
+      .expertise-card {
+        padding: 18px 16px;
+        gap: 14px;
       }
     }
 
