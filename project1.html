@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anil Sheth Residence — AAS Interiors</title>
+  <meta name="description" content="Explore the Anil Sheth Residence at Worli Raheja Artesia, Mumbai — a luxury residential interior designed by AAS Interiors.">
+  <link href="https://api.fontshare.com/v2/css?f[]=chillax@200,300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    /* ============ RESET & BASE ============ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.15) transparent;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background-color: #171717;
+      color: #ffffff;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+
+    .chillax { font-family: "Chillax", sans-serif; }
+
+    :root {
+      --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+      --bg-dark: #171717;
+      --bg-card: #1e1e1e;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --text-muted: rgba(255, 255, 255, 0.5);
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-border: rgba(255, 255, 255, 0.14);
+    }
+
+    /* ============ TOP NAVIGATION LINE ============ */
+    .project-nav-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(18, 18, 18, 0.75);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 16px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform 0.4s var(--ease-cinematic), opacity 0.4s ease, background 0.3s ease;
+      transform: translateY(-100%);
+      opacity: 0;
+      animation: navLineSlideDown 0.8s var(--ease-cinematic) 0.2s forwards;
+    }
+
+    @keyframes navLineSlideDown {
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .project-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+
+    .project-nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .project-nav-back:hover {
+      color: #ffffff;
+    }
+
+    .project-nav-back svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      transition: transform 0.3s ease;
+    }
+
+    .project-nav-back:hover svg {
+      transform: translateX(-3px);
+    }
+
+    .project-nav-slash {
+      color: rgba(255, 255, 255, 0.3);
+      font-weight: 300;
+      font-size: 0.9rem;
+      margin: 0 4px;
+    }
+
+    .project-nav-title {
+      color: #ffffff;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-family: "Chillax", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .project-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .project-nav-counter {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .project-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .project-nav-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .project-nav-item a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 4px 8px;
+    }
+
+    .project-nav-item a:hover,
+    .project-nav-item a.active {
+      color: #ffffff;
+    }
+
+    .project-nav-item a.active {
+      font-weight: 600;
+      position: relative;
+    }
+
+    .project-nav-item a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 8px;
+      right: 8px;
+      height: 1px;
+      background: #ffffff;
+    }
+
+    /* ============ HERO SECTION ============ */
+    .gallery-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .gallery-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      will-change: transform;
+    }
+
+    .gallery-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(23, 23, 23, 1) 0%,
+        rgba(23, 23, 23, 0.75) 18%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+      );
+      z-index: 1;
+    }
+
+    .gallery-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 72px 80px 72px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .gallery-hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .gallery-hero-title {
+      font-family: "Chillax", sans-serif;
+      font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .gallery-hero-location {
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: scrollIndicatorIn 1s var(--ease-cinematic) 2s forwards;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .scroll-indicator-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollIndicatorIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ============ PROJECT INFO STRIP ============ */
+    .project-info-strip {
+      width: 100%;
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 48px 72px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .info-strip-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .info-item-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .info-item-value {
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    /* ============ GALLERY CONTAINER ============ */
+    .gallery-section {
+      width: 100%;
+      background: var(--bg-dark);
+      padding: 80px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .gallery-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ============ GALLERY ROW LAYOUTS ============ */
+
+    /* -- Layout A: Full-Width Cinematic -- */
+    .g-row-full {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .g-row-full img {
+      width: 100%;
+      height: auto;
+      max-height: 85vh;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease-cinematic);
+    }
+
+    .g-row-full:hover img {
+      transform: scale(1.02);
+    }
+
+    /* -- Layout B: Two-Column Asymmetric -- */
+    .g-row-2col {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .g-row-2col.reverse {
+      grid-template-columns: 1fr 1.2fr;
+    }
+
+    .g-row-2col .g-cell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .g-row-2col .g-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease-cinematic);
+    }
+
+    .g-row-2col .g-cell:hover img {
+      transform: scale(1.03);
+    }
+
+    /* -- Layout C: Three-Column (middle taller) -- */
+    .g-row-3col {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1fr;
+      gap: 20px;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .g-row-3col .g-cell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .g-row-3col .g-cell:nth-child(2) {
+      transform: translateY(-24px);
+    }
+
+    .g-row-3col .g-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease-cinematic);
+    }
+
+    .g-row-3col .g-cell:hover img {
+      transform: scale(1.03);
+    }
+
+    /* -- Layout D: Large Left + 2 Stacked Right -- */
+    .g-row-featured {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .g-row-featured .g-cell-large {
+      grid-row: span 2;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .g-row-featured .g-cell-stack {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .g-row-featured img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease-cinematic);
+    }
+
+    .g-row-featured .g-cell-large:hover img,
+    .g-row-featured .g-cell-stack:hover img {
+      transform: scale(1.03);
+    }
+
+    /* -- Layout E: Full-Width with Text Overlay -- */
+    .g-row-quote {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .g-row-quote img {
+      width: 100%;
+      height: auto;
+      max-height: 75vh;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.6);
+      transition: transform 0.8s var(--ease-cinematic), filter 0.5s ease;
+    }
+
+    .g-row-quote:hover img {
+      transform: scale(1.02);
+      filter: brightness(0.7);
+    }
+
+    .g-row-quote-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      z-index: 2;
+    }
+
+    .g-row-quote-text {
+      font-family: "Chillax", sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2.4rem);
+      font-weight: 400;
+      color: #ffffff;
+      line-height: 1.35;
+      max-width: 700px;
+      letter-spacing: -0.01em;
+    }
+
+    .g-row-quote-tag {
+      margin-top: 16px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Gallery scroll reveal animation */
+    .g-reveal {
+      opacity: 0;
+      transform: translateY(48px) scale(0.97);
+      transition: opacity 1.1s var(--ease-cinematic),
+                  transform 1.1s var(--ease-cinematic);
+      will-change: opacity, transform;
+    }
+
+    .g-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Cursor pointer for clickable images */
+    .g-cell, .g-cell-large, .g-cell-stack, .g-row-full, .g-row-quote {
+      cursor: zoom-in;
+    }
+
+    /* ============ LIGHTBOX ============ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s var(--ease-cinematic);
+    }
+
+    .lightbox.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-img-wrapper {
+      position: relative;
+      max-width: 92vw;
+      max-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 4px;
+      transform: scale(0.9);
+      transition: transform 0.5s var(--ease-cinematic);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox.is-active .lightbox-img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 1001;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.08);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1001;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ============ MINIMALIST BOTTOM PROJECT NAV LINE ============ */
+    .project-bottom-nav {
+      width: 100%;
+      background: var(--bg-dark);
+      padding: 40px 48px 80px 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-bottom-nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 28px 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .project-bottom-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: all 0.35s var(--ease-cinematic);
+    }
+
+    .project-bottom-link:hover {
+      color: #ffffff;
+    }
+
+    .project-bottom-link .link-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .project-bottom-link:hover .link-label {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .project-bottom-link .link-title {
+      font-family: "Chillax", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .project-bottom-slash {
+      color: rgba(255, 255, 255, 0.3);
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+
+    .project-bottom-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    .project-bottom-all:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* ============ FOOTER ============ */
+    .gallery-footer {
+      background-color: #121212;
+      color: #ffffff;
+      padding: 48px 72px 40px 72px;
+      position: relative;
+      z-index: 3;
+      border-top: 1px solid var(--border-subtle);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .gallery-footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .gallery-footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .gallery-footer-brand h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .gallery-footer-brand p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .gallery-footer-copy {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ============ RESPONSIVE ============ */
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .gallery-hero-content {
+        padding: 0 40px 64px 40px;
+      }
+
+      .project-info-strip {
+        padding: 40px;
+      }
+
+      .info-strip-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+
+      .gallery-inner {
+        padding: 0 28px;
+        gap: 16px;
+      }
+
+      .g-row-featured {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .g-row-featured .g-cell-large {
+        grid-row: span 1;
+      }
+
+      .g-row-3col .g-cell:nth-child(2) {
+        transform: none;
+      }
+
+      .next-project-section {
+        padding: 32px 28px 64px 28px;
+      }
+
+      .next-project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .next-project-img-wrapper {
+        height: 240px;
+      }
+
+      .next-project-info {
+        padding: 36px 40px;
+      }
+
+      .gallery-footer {
+        padding: 40px 40px 32px 40px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .project-nav-line {
+        padding: 12px 20px;
+      }
+
+      .project-nav-right .project-nav-links {
+        display: none;
+      }
+
+      .project-bottom-nav {
+        padding: 32px 16px 56px 16px;
+      }
+
+      .project-bottom-nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 16px;
+        gap: 16px;
+      }
+
+      .project-bottom-link {
+        flex-wrap: wrap;
+      }
+
+      .gallery-hero {
+        min-height: 500px;
+      }
+
+      .gallery-hero-content {
+        padding: 0 24px 56px 24px;
+      }
+
+      .gallery-hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .project-info-strip {
+        padding: 32px 24px;
+      }
+
+      .info-strip-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .gallery-inner {
+        padding: 0 16px;
+        gap: 12px;
+      }
+
+      .gallery-section {
+        padding: 48px 0;
+      }
+
+      .g-row-2col,
+      .g-row-2col.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .g-row-3col {
+        grid-template-columns: 1fr;
+      }
+
+      .g-row-3col .g-cell:nth-child(2) {
+        transform: none;
+      }
+
+      .g-row-featured {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .g-row-featured .g-cell-large {
+        grid-row: span 1;
+      }
+
+      .g-row-quote-text {
+        font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+      }
+
+      .next-project-section {
+        padding: 24px 16px 56px 16px;
+      }
+
+      .next-project-card {
+        grid-template-columns: 1fr;
+        border-radius: 12px;
+      }
+
+      .next-project-img-wrapper {
+        height: 200px;
+      }
+
+      .next-project-info {
+        padding: 28px 24px;
+      }
+
+      .gallery-footer {
+        padding: 32px 24px 28px 24px;
+      }
+
+      .gallery-footer-inner {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .lightbox-nav { width: 40px; height: 40px; font-size: 1rem; }
+      .lightbox-prev { left: 12px; }
+      .lightbox-next { right: 12px; }
+      .lightbox-close { top: 16px; right: 16px; width: 40px; height: 40px; }
+
+      .scroll-indicator { display: none; }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .g-reveal {
+        transform: none !important;
+        transition: opacity 0.4s ease !important;
+      }
+      .gallery-hero-img { transform: none !important; }
+      .scroll-indicator-line { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVIGATION LINE -->
+  <nav class="project-nav-line" id="projectNavLine">
+    <div class="project-nav-left">
+      <a href="index.html#projects" class="project-nav-back">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Back</span>
+      </a>
+      <span class="project-nav-slash">/</span>
+      <span class="project-nav-title">Anil Sheth Residence</span>
+    </div>
+    <div class="project-nav-right">
+      <span class="project-nav-counter">01 / 03</span>
+      <ul class="project-nav-links">
+        <li class="project-nav-item"><a href="project1.html" class="active">01. Anil Sheth</a></li>
+        <li class="project-nav-item"><span class="project-nav-slash">/</span></li>
+        <li class="project-nav-item"><a href="project2.html">02. Gautam Jhunjhunwala</a></li>
+        <li class="project-nav-item"><span class="project-nav-slash">/</span></li>
+        <li class="project-nav-item"><a href="project3.html">03. Dr. Ajay Thakkar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="gallery-hero" id="galleryHero">
+    <img
+      src="PROJECT%201/WEBP_4K/STOREYS_Page_01_4K.webp"
+      alt="Anil Sheth Residence — Worli Raheja Artesia, Mumbai"
+      class="gallery-hero-img"
+      id="heroImg"
+      loading="eager"
+    >
+    <div class="gallery-hero-content">
+      <span class="gallery-hero-tag" id="heroTag">Project 01 — Luxury Residential</span>
+      <h1 class="gallery-hero-title" id="heroTitle">Anil Sheth<br>Residence</h1>
+      <p class="gallery-hero-location" id="heroLocation">Worli Raheja Artesia, Mumbai</p>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-indicator-line"></div>
+    </div>
+  </section>
+
+  <!-- PROJECT INFO STRIP -->
+  <section class="project-info-strip" id="infoStrip">
+    <div class="info-strip-inner">
+      <div class="info-item">
+        <span class="info-item-label">Built Area</span>
+        <span class="info-item-value">12,000 sq ft</span>
+      </div>
+      <div class="info-item">
+        <span class="info-item-label">Architect</span>
+        <span class="info-item-value">Hemant Vora</span>
+      </div>
+      <div class="info-item">
+        <span class="info-item-label">Location</span>
+        <span class="info-item-value">Worli, Mumbai</span>
+      </div>
+      <div class="info-item">
+        <span class="info-item-label">Category</span>
+        <span class="info-item-value">Luxury Residential Interior</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE GALLERY -->
+  <section class="gallery-section" id="gallerySection">
+    <div class="gallery-inner">
+
+      <!-- Row 1: Two-Column -->
+      <div class="g-row-2col g-reveal">
+        <div class="g-cell" data-img-idx="0"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_02_4K.webp" alt="Interior View 1" loading="lazy"></div>
+        <div class="g-cell" data-img-idx="1"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_03_4K.webp" alt="Interior View 2" loading="lazy"></div>
+      </div>
+
+      <!-- Row 2: Full-Width Cinematic -->
+      <div class="g-row-full g-reveal" data-img-idx="2">
+        <img src="PROJECT%201/WEBP_4K/STOREYS_Page_04_4K.webp" alt="Interior View 3" loading="lazy">
+      </div>
+
+      <!-- Row 3: Three-Column (middle taller) -->
+      <div class="g-row-3col g-reveal">
+        <div class="g-cell" data-img-idx="3"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_05_4K.webp" alt="Interior View 4" loading="lazy"></div>
+        <div class="g-cell" data-img-idx="4"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_06_4K.webp" alt="Interior View 5" loading="lazy"></div>
+        <div class="g-cell" data-img-idx="5"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_07_4K.webp" alt="Interior View 6" loading="lazy"></div>
+      </div>
+
+      <!-- Row 4: Large Left + 2 Stacked Right -->
+      <div class="g-row-featured g-reveal">
+        <div class="g-cell-large" data-img-idx="6"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_08_4K.webp" alt="Interior View 7" loading="lazy"></div>
+        <div class="g-cell-stack" data-img-idx="7"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_09_4K.webp" alt="Interior View 8" loading="lazy"></div>
+        <div class="g-cell-stack" data-img-idx="8"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_10_4K.webp" alt="Interior View 9" loading="lazy"></div>
+      </div>
+
+      <!-- Row 5: Two-Column Reversed -->
+      <div class="g-row-2col reverse g-reveal">
+        <div class="g-cell" data-img-idx="9"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_11_4K.webp" alt="Interior View 10" loading="lazy"></div>
+        <div class="g-cell" data-img-idx="10"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_12_4K.webp" alt="Interior View 11" loading="lazy"></div>
+      </div>
+
+      <!-- Row 6: Full-Width with Text Overlay -->
+      <div class="g-row-quote g-reveal" data-img-idx="11">
+        <img src="PROJECT%201/WEBP_4K/STOREYS_Page_13_4K.webp" alt="Interior View 12" loading="lazy">
+        <div class="g-row-quote-overlay">
+          <p class="g-row-quote-text">"Every element was chosen to honour the family's lifestyle — timeless materials, thoughtful lighting, and spaces that breathe."</p>
+          <span class="g-row-quote-tag">— AAS Interiors</span>
+        </div>
+      </div>
+
+      <!-- Row 7: Three-Column -->
+      <div class="g-row-3col g-reveal">
+        <div class="g-cell" data-img-idx="12"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_14_4K.webp" alt="Interior View 13" loading="lazy"></div>
+        <div class="g-cell" data-img-idx="13"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_15_4K.webp" alt="Interior View 14" loading="lazy"></div>
+        <div class="g-cell" data-img-idx="14"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_16_4K.webp" alt="Interior View 15" loading="lazy"></div>
+      </div>
+
+      <!-- Row 8: Two-Column -->
+      <div class="g-row-2col g-reveal">
+        <div class="g-cell" data-img-idx="15"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_17_4K.webp" alt="Interior View 16" loading="lazy"></div>
+        <div class="g-cell" data-img-idx="16"><img src="PROJECT%201/WEBP_4K/STOREYS_Page_18_4K.webp" alt="Interior View 17" loading="lazy"></div>
+      </div>
+
+      <!-- Row 9: Full-Width Closing Shot -->
+      <div class="g-row-full g-reveal" data-img-idx="17">
+        <img src="PROJECT%201/WEBP_4K/STOREYS_Page_19_4K.webp" alt="Interior View 18 — Final Shot" loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECT BOTTOM NAVIGATION LINE -->
+  <section class="project-bottom-nav">
+    <div class="project-bottom-nav-inner g-reveal">
+      <a href="index.html#projects" class="project-bottom-all">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>All Projects</span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <span class="project-bottom-slash">/</span>
+        <a href="project2.html" class="project-bottom-link">
+          <span class="link-label">Next Project</span>
+          <span class="project-bottom-slash">/</span>
+          <span class="link-title">Gautam Jhunjhunwala Residence</span>
+          <span style="font-size: 1.1rem; color: #fff; display: inline-block; transition: transform 0.3s ease;">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="gallery-footer">
+    <div class="gallery-footer-inner">
+      <div class="gallery-footer-brand">
+        <h3>AAS Interiors</h3>
+        <p>Total ownership, total accountability, total result.</p>
+      </div>
+      <p class="gallery-footer-copy">© AAS Interiors 2026</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX OVERLAY -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+    <div class="lightbox-img-wrapper">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="Fullscreen project image">
+    </div>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ========== GSAP SETUP ==========
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ========== 1. HERO ENTRANCE ==========
+      const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      heroTl
+        .to('#heroImg', { scale: 1, duration: 1.8, ease: "power2.out" })
+        .to('#heroTag', { opacity: 1, y: 0, duration: 0.9 }, "-=1.0")
+        .to('#heroTitle', { opacity: 1, y: 0, duration: 1.1 }, "-=0.7")
+        .to('#heroLocation', { opacity: 1, y: 0, duration: 0.9 }, "-=0.6");
+
+      // ========== 2. HERO PARALLAX ==========
+      gsap.to('#heroImg', {
+        yPercent: 20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: '.gallery-hero',
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6
+        }
+      });
+
+      // ========== 3. INFO STRIP REVEAL ==========
+      const infoItems = document.querySelectorAll('.info-item');
+      ScrollTrigger.create({
+        trigger: '#infoStrip',
+        start: 'top 85%',
+        onEnter: () => {
+          infoItems.forEach((item, i) => {
+            gsap.to(item, {
+              opacity: 1,
+              y: 0,
+              duration: 0.9,
+              delay: i * 0.12,
+              ease: "power3.out"
+            });
+          });
+        }
+      });
+
+      // ========== 4. GALLERY SCROLL REVEAL ==========
+      const revealEls = document.querySelectorAll('.g-reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+
+      // ========== 5. GALLERY PARALLAX ==========
+      const parallaxItems = document.querySelectorAll('.g-row-full img, .g-row-quote img');
+      parallaxItems.forEach(img => {
+        gsap.to(img, {
+          yPercent: 8,
+          ease: "none",
+          scrollTrigger: {
+            trigger: img.closest('.g-row-full, .g-row-quote'),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.8
+          }
+        });
+      });
+
+      // ========== 6. LIGHTBOX ==========
+      const allImages = [
+        "PROJECT%201/WEBP_4K/STOREYS_Page_02_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_03_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_04_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_05_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_06_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_07_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_08_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_09_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_10_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_11_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_12_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_13_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_14_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_15_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_16_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_17_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_18_4K.webp",
+        "PROJECT%201/WEBP_4K/STOREYS_Page_19_4K.webp"
+      ];
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCounter = document.getElementById('lightboxCounter');
+      let currentIdx = 0;
+
+      function openLightbox(idx) {
+        currentIdx = idx;
+        lightboxImg.src = decodeURIComponent(allImages[currentIdx]);
+        lightboxCounter.textContent = `${currentIdx + 1} / ${allImages.length}`;
+        lightbox.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-active');
+        document.body.style.overflow = '';
+      }
+
+      function prevImage() {
+        currentIdx = (currentIdx - 1 + allImages.length) % allImages.length;
+        lightboxImg.src = decodeURIComponent(allImages[currentIdx]);
+        lightboxCounter.textContent = `${currentIdx + 1} / ${allImages.length}`;
+      }
+
+      function nextImage() {
+        currentIdx = (currentIdx + 1) % allImages.length;
+        lightboxImg.src = decodeURIComponent(allImages[currentIdx]);
+        lightboxCounter.textContent = `${currentIdx + 1} / ${allImages.length}`;
+      }
+
+      // Attach click handlers to all gallery cells
+      document.querySelectorAll('[data-img-idx]').forEach(el => {
+        el.addEventListener('click', (e) => {
+          const idx = parseInt(el.getAttribute('data-img-idx'));
+          openLightbox(idx);
+        });
+      });
+
+      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+      document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+      document.getElementById('lightboxNext').addEventListener('click', nextImage);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('is-active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+      });
+
+      // Close on backdrop click
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-img-wrapper')) {
+          closeLightbox();
+        }
+      });
+
+      // Touch swipe support for lightbox
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextImage();
+          else prevImage();
+        }
+      }, { passive: true });
+
+      // ========== 7. TOP NAV LINE HIDE/SHOW ON SCROLL ==========
+      const projectNavLine = document.getElementById('projectNavLine');
+      let lastScrollY = 0;
+
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
+          projectNavLine.style.transform = 'translateY(-100%)';
+        } else {
+          projectNavLine.style.transform = 'translateY(0)';
+        }
+        lastScrollY = currentScrollY;
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>
