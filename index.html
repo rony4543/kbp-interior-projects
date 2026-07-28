@@ -754,10 +754,10 @@
 
     /* Main Display Title with Inline Pill Images */
     .dwb-title {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(2.5rem, 5.5vw, 5.2rem);
-      font-weight: 400;
-      line-height: 1.25;
+      font-family: "Chillax", "Montserrat", sans-serif;
+      font-size: clamp(2.8rem, 6.2vw, 5.8rem);
+      font-weight: 500;
+      line-height: 1.2;
       letter-spacing: -0.03em;
       color: #ffffff;
       margin-bottom: 32px;
@@ -771,21 +771,15 @@
       position: relative;
     }
 
-    /* ================= SIGNATURE SWIPE ANIMATION PATTERN ================= */
-    .dwb-title-line {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      margin-bottom: 12px;
-      position: relative;
-      cursor: pointer;
-    }
-
     /* Text Spans - Swipes Right */
     .dwb-text-span {
       display: inline-block;
       white-space: nowrap;
       opacity: 1 !important;
+      font-family: "Chillax", "Montserrat", sans-serif;
+      font-size: clamp(2.8rem, 6.2vw, 5.8rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
       transform: translateX(0px);
       transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
@@ -796,7 +790,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      height: clamp(52px, 6vw, 76px);
+      height: clamp(54px, 6.5vw, 82px);
       width: 0px;
       max-width: 0px;
       opacity: 0;
@@ -805,7 +799,8 @@
       border-radius: 999px;
       overflow: hidden;
       vertical-align: middle;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border: 2.5px solid #ffffff;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4), 0 0 16px rgba(255, 255, 255, 0.25);
       flex-shrink: 0;
       transform: translateX(40px);
       transition: width 1.6s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1908,7 +1903,8 @@
       }
 
       .dwb-text-span {
-        font-size: clamp(1.2rem, 4.8vw, 2.2rem);
+        font-size: clamp(1.3rem, 5.2vw, 2.4rem);
+        font-weight: 500;
         white-space: nowrap;
         letter-spacing: -0.02em;
         transition: transform 0.8s var(--ease-cinematic);
@@ -1916,10 +1912,12 @@
 
       /* Collapsed Pill Dimensions on Mobile */
       .dwb-img-pill {
-        height: clamp(36px, 9vw, 48px);
+        height: clamp(38px, 9vw, 50px);
         width: 0px;
         max-width: 0px;
         opacity: 0;
+        border: 2px solid #ffffff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         transform: translateX(16px);
         transition: width 0.9s var(--ease-cinematic),
                     max-width 0.9s var(--ease-cinematic),
