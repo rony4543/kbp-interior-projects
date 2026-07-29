@@ -11,7 +11,36 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
     /* ============ RESET & BASE ============ */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
+
+    ::selection {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    ::-moz-selection {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    img, a, button {
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    *:focus, *:focus-visible, *:active {
+      outline: none !important;
+    }
 
     html {
       scroll-behavior: smooth;

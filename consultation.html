@@ -24,6 +24,31 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
+
+    ::selection {
+      background: rgba(17, 17, 17, 0.15);
+      color: #111111;
+    }
+
+    ::-moz-selection {
+      background: rgba(17, 17, 17, 0.15);
+      color: #111111;
+    }
+
+    img, a, button {
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    *:focus, *:focus-visible, *:active {
+      outline: none !important;
     }
 
     body {
