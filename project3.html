@@ -11,35 +11,52 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
     /* ============ RESET & BASE ============ */
-    * { 
+    *, *::before, *::after { 
       margin: 0; 
       padding: 0; 
       box-sizing: border-box; 
-      -webkit-tap-highlight-color: transparent;
-      outline: none;
+      -webkit-tap-highlight-color: transparent !important;
+      -webkit-touch-callout: none !important;
+      outline: none !important;
     }
 
     ::selection {
-      background: rgba(255, 255, 255, 0.2);
-      color: #ffffff;
+      background: transparent !important;
+      color: inherit !important;
     }
 
     ::-moz-selection {
-      background: rgba(255, 255, 255, 0.2);
-      color: #ffffff;
+      background: transparent !important;
+      color: inherit !important;
     }
 
-    img, a, button {
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -o-user-select: none;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-
-    *:focus, *:focus-visible, *:active {
+    .project-card-link,
+    .project-card,
+    .project-card *,
+    .mobile-menu-btn,
+    .mobile-menu-btn *,
+    .next-project-card,
+    .next-project-card *,
+    .project-nav-line,
+    .project-nav-line *,
+    button,
+    a,
+    img {
+      -webkit-user-select: none !important;
+      -khtml-user-select: none !important;
+      -moz-user-select: none !important;
+      -o-user-select: none !important;
+      user-select: none !important;
+      -webkit-user-drag: none !important;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
       outline: none !important;
+    }
+
+    *:focus, *:focus-visible, *:active, *:focus-within {
+      outline: 0 !important;
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-tap-highlight-color: transparent !important;
     }
 
     html {
